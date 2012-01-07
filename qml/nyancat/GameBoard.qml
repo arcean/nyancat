@@ -120,7 +120,7 @@ Page {
                 player.visible = !player.visible;
             }
         }
-        else {
+        else if (player._DIRECTION == 3) {
 
             if (Game.movePlayer(player._CURRENT_X, player._CURRENT_Y - 1, player._CURRENT_X, player._CURRENT_Y)) {
                 player._CURRENT_Y--;
@@ -149,7 +149,7 @@ Page {
             tail.x =  player.x + player.width - 14;
             tail.y =  player.y + 1;
         }
-        else {
+        else if (current_direction == 3) {
             tail.x =  player.x + 1;
             tail.y =  player.y + tail.width - 14;
         }
@@ -167,7 +167,14 @@ Page {
         else if(current_direction == 1)
             var z = Game.isMoveLocked(player.x, player.y+player.width, player.width, player.height);*/
        // else
+        var dim = (player.width - player.height) / 2;
+        console.log('dim', dim);
+        if (current_direction == 0 || current_direction == 2)
             var z = Game.isMoveLocked(player.x, player.y, player.width, player.height);
+        else if (current_direction == 1)
+            var z = Game.isMoveLocked(player.x + dim, player.y - dim, player.height, player.width);
+        else if (current_direction == 3)
+            var z = Game.isMoveLocked(player.x + dim, player.y - dim, player.height, player.width);
 
         console.log('ZZZZZ: ', z)
         if (z > 0) {
@@ -176,6 +183,7 @@ Page {
             console.log('y', player.y)
             console.log('x2', player.x+player.width)
             console.log('y2', player.y+player.height)
+            current_direction = -1;
         }
         Game.printList();
     }
@@ -460,7 +468,7 @@ Page {
         id: moveTimer
         running: false
         repeat: true
-        interval: 80
+        interval: 50
         onTriggered: move()
     }
 
