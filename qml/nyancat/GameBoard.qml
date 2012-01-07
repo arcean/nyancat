@@ -171,9 +171,7 @@ Page {
         console.log('dim', dim);
         if (current_direction == 0 || current_direction == 2)
             var z = Game.isMoveLocked(player.x, player.y, player.width, player.height);
-        else if (current_direction == 1)
-            var z = Game.isMoveLocked(player.x + dim, player.y - dim, player.height, player.width);
-        else if (current_direction == 3)
+        else if (current_direction == 1 || current_direction == 3)
             var z = Game.isMoveLocked(player.x + dim, player.y - dim, player.height, player.width);
 
         console.log('ZZZZZ: ', z)
