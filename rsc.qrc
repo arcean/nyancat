@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>data/images/star1.png</file>
+        <file>data/images/star2.png</file>
+        <file>data/images/star3.png</file>
+        <file>data/images/star4.png</file>
+        <file>data/images/star5.png</file>
+        <file>data/images/star6.png</file>
+        <file>data/images/cat1.png</file>
+        <file>data/images/cat2.png</file>
+        <file>data/images/cat3.png</file>
+        <file>data/images/cat4.png</file>
+        <file>data/images/cat5.png</file>
+        <file>data/images/cat6.png</file>
+        <file>data/images/tail1.png</file>
+        <file>data/images/tail2.png</file>
+        <file>data/images/tail3.png</file>
+        <file>data/images/chip_mine.png</file>
+    </qresource>
+</RCC>
