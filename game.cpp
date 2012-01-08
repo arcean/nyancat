@@ -4,6 +4,45 @@
 Game::Game(QObject *parent) :
     QObject(parent) {
 
+    resetMineInUse();
+}
+
+/*
+ * Reset mineInUse table.
+ */
+void Game::resetMineInUse()
+{
+    for (int i = 0; i < MAX_MINE; i++) {
+        mineInUse[i] = false;
+    }
+}
+
+/*
+ * Get the first, free mine. Return -1 if all of them are in use.
+ */
+void Game::getFirstFreeMine()
+{
+    int number = -1;
+
+    for (int i = 0; i < MAX_MINE; i++) {
+        if (mineInUse[i] == false) {
+            number = i;
+            mineInUse[i] = true;
+            break;
+        }
+    }
+
+    if(number != -1)
+        emit this->firstFreeMine(number);
+}
+
+/*
+ * Get a mine with the given number.
+ */
+void Game::freeMine(int number)
+{
+    if (number >= 0 && number < MAX_MINE)
+        mineInUse[number] = false;
 }
 
 #ifdef DEBUG_MODE
@@ -82,7 +121,10 @@ int Game::isMoveLocked(int x1, int y1, int width, int height)
     return -1;
 }
 
-//void Game::removeObject()
+void Game::removeObject(int itemID)
+{
+    objectsList.removeAt(itemID);
+}
 
 int Game::insertNewObject(int x, int y, int width, int height, int type)
 {

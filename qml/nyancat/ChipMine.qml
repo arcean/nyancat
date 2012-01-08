@@ -2,17 +2,20 @@
 import QtQuick 1.1
 
     Item {
+        id: item
         property int itemID: 0
         property int takesLife: 1
         property bool destroyAfterUse: true
         property bool isBad: true
+        property int mineID: 0
 
-        width: 80
-        height: 80
+        width: 64
+        height: 64
+        visible: false
 
         Image {
             id: chip1
-            source: "qrc:/data/images/chip_mine.png"
+            source: "qrc:/data/images/mine.png"
             visible: true
         }
     }

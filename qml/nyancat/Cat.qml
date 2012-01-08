@@ -114,13 +114,13 @@ import QtQuick 1.1
                 }
             }
         ]
-/*
+
         transitions: [
             Transition {
                 ParallelAnimation {
                     NumberAnimation { properties: "opacity"; duration: 200; easing.type: Easing.InOutQuad }
                 }
             }
-        ]*/
+        ]
 
     }
