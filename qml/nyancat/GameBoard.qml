@@ -15,7 +15,7 @@ Page {
         Game.createPlayer();
         Game.createTail();
         Game.moveTail();
-        Game.createMine();
+      //  Game.createMine();
         moveTimer.start();
     }
 
@@ -23,6 +23,11 @@ Page {
         id: background
         anchors.fill: parent
         color: "#294c78"
+    }
+
+    function event()
+    {
+        Game.createMineRandomNumber();
     }
 
     function move()
@@ -41,8 +46,11 @@ Page {
         else if (Game.current_direction == 1 || Game.current_direction == 3)
             var z = Game.isCollision(Game.player.x + diff, Game.player.y - diff, width_diff, height_diff);
 
+        if (z)
+            Game.current_direction = -1;
+
         //var z = Game.isCollision(Game.player.x, Game.player.y, width, width);
-        console.log('det: ',z)
+ /*       console.log('det: ',z)
         if (Game.current_direction == 0 || Game.current_direction == 2){
             console.log('det x: ',Game.player.x)
             console.log('det y: ',Game.player.y)
@@ -54,12 +62,12 @@ Page {
             console.log('det y: ',Game.player.y- diff)
             console.log('det width: ',width_diff)
             console.log('det height: ',height_diff)
-        }
-
+        }*/
+/*
         console.log('mine x: ', Game.getMineX(0))
         console.log('mine y: ', Game.getMineY(0))
         console.log('mine width: ', Game.getMineWidth(0))
-        console.log('mine height: ', Game.getMineHeight(0))
+        console.log('mine height: ', Game.getMineHeight(0))*/
 
     }
 
@@ -69,6 +77,21 @@ Page {
         repeat: true
         interval: 50
         onTriggered: move()
+    }
+
+    Timer {
+        id: eventTimer
+        running: moveTimer.running
+        repeat: true
+        interval: 2000
+        onTriggered: event()
+    }
+    Timer {
+        id: eventDestroyTimer
+        running: moveTimer.running
+        repeat: true
+        interval: 500
+        onTriggered: Game.checkAndDestroy();
     }
 
     MouseArea {

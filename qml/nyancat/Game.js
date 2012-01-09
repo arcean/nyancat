@@ -20,6 +20,14 @@ var player;
 var tail_component;
 var tail;
 
+/* CHECK AND DESTROY functions ====================================================== */
+
+function checkAndDestroy()
+{
+    checkAndDestroyMine();
+}
+
+/* PLACE functions ================================================================== */
 
 function placeStars()
 {
