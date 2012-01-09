@@ -17,17 +17,17 @@ function checkAndDestroyMine()
 
 /* COLLISION functions ============================================================== */
 
-function isCollision(p_x, p_y, p_x2, p_y2)
+function isCollisionMine(p_x, p_y, p_x2, p_y2)
 {
     for (var i = 0; i < _MAX_MINES; i++) {
-        if (isCollisionFor(p_x, p_y, p_x2, p_y2, i))
+        if (isCollisionMineFor(p_x, p_y, p_x2, p_y2, i))
             return true;
     }
 
     return false;
 }
 
-function isCollisionFor(p_x, p_y, p_x2, p_y2, mine_number)
+function isCollisionMineFor(p_x, p_y, p_x2, p_y2, mine_number)
 {
     var m_x = getMineX(mine_number);
     var m_y = getMineY(mine_number);

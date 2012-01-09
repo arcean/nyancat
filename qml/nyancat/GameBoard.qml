@@ -28,6 +28,7 @@ Page {
     function event()
     {
         Game.createMineRandomNumber();
+        Game.createCoinRandomNumber();
     }
 
     function move()

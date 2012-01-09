@@ -16,5 +16,6 @@
         <file>data/images/tail2.png</file>
         <file>data/images/tail3.png</file>
         <file>data/images/chip_mine.png</file>
+        <file>data/images/moneta_y.png</file>
     </qresource>
 </RCC>

@@ -1,4 +1,5 @@
 Qt.include("Mines.js")
+Qt.include("Coin.js")
 
 var _MAX_STARS = 16;
 var _WIDTH = 480;
@@ -20,11 +21,27 @@ var player;
 var tail_component;
 var tail;
 
+/* COLLISION functions ============================================================== */
+
+function isCollision(p_x, p_y, p_x2, p_y2)
+{
+    var result = false;
+    result = isCollisionMine(p_x, p_y, p_x2, p_y2);
+
+    if (result)
+        return true;
+
+    result = isCollisionCoin(p_x, p_y, p_x2, p_y2);
+
+    return result;
+}
+
 /* CHECK AND DESTROY functions ====================================================== */
 
 function checkAndDestroy()
 {
     checkAndDestroyMine();
+    checkAndDestroyCoin();
 }
 
 /* PLACE functions ================================================================== */
