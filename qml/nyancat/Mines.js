@@ -3,6 +3,50 @@ var array_mines = new Array(_MAX_MINES);
 var array_mines_indi = 0;
 var component_mine;
 
+function isCollision(p_x, p_y, p_x2, p_y2)
+{
+    for (var i = 0; i < array_mines_indi; i++) {
+        if (isCollisionFor(p_x, p_y, p_x2, p_y2, i))
+            return true;
+    }
+
+    return false;
+}
+
+function isCollisionFor(p_x, p_y, p_x2, p_y2, mine_number)
+{
+    var m_x = getMineX(mine_number);
+    var m_y = getMineY(mine_number);
+    var m_x2 = m_x + getMineWidth(mine_number);
+    var m_y2 = m_y + getMineHeight(mine_number);
+
+    if (p_x >= m_x && p_x <= m_x2)
+        if (p_y >= m_y && p_y <= m_y2) {
+            console.log('detrrrrr 1')
+            return true;
+        }
+
+    if (p_x >= m_x && p_x <= m_x2)
+        if (p_y2 >= m_y && p_y2 <= m_y2) {
+            console.log('detrrrrr 2')
+            return true;
+        }
+
+    if (p_x2 >= m_x && p_x2 <= m_x2)
+        if (p_y >= m_y && p_y <= m_y2) {
+            console.log('detrrrrr 3')
+            return true;
+        }
+
+    if (p_x2 >= m_x && p_x2 <= m_x2)
+        if (p_y2 >= m_y && p_y2 <= m_y2) {
+            console.log('detrrrrr 4')
+            return true;
+        }
+
+    return false;
+}
+
 /* GET functions ============================================================ */
 
 function getMineX(n)

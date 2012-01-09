@@ -28,6 +28,39 @@ Page {
     function move()
     {
         Game.movePlayer();
+        var width = Game.player.width;
+        var height = Game.player.height;
+        var diff = (width - height) / 2;
+        var width_diff = Game.player.height + Game.player.x + diff;
+        var height_diff = Game.player.width + Game.player.y - diff;
+        width += Game.player.x;
+        height += Game.player.y;
+
+        if (Game.current_direction == 0 || Game.current_direction == 2)
+            var z = Game.isCollision(Game.player.x, Game.player.y, width, height);
+        else if (Game.current_direction == 1 || Game.current_direction == 3)
+            var z = Game.isCollision(Game.player.x + diff, Game.player.y - diff, width_diff, height_diff);
+
+        //var z = Game.isCollision(Game.player.x, Game.player.y, width, width);
+        console.log('det: ',z)
+        if (Game.current_direction == 0 || Game.current_direction == 2){
+            console.log('det x: ',Game.player.x)
+            console.log('det y: ',Game.player.y)
+            console.log('det width: ',width)
+            console.log('det height: ',height)
+        }
+        else {
+            console.log('det x: ',Game.player.x + diff)
+            console.log('det y: ',Game.player.y- diff)
+            console.log('det width: ',width_diff)
+            console.log('det height: ',height_diff)
+        }
+
+        console.log('mine x: ', Game.getMineX(0))
+        console.log('mine y: ', Game.getMineY(0))
+        console.log('mine width: ', Game.getMineWidth(0))
+        console.log('mine height: ', Game.getMineHeight(0))
+
     }
 
     Timer {

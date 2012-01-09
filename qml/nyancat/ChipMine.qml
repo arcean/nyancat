@@ -9,13 +9,13 @@ import QtQuick 1.1
         property bool isBad: true
         property int mineID: 0
 
-        width: 64
-        height: 64
+        width: 80
+        height: 80
         visible: false
 
         Image {
             id: chip1
-            source: "qrc:/data/images/mine.png"
+            source: "qrc:/data/images/chip_mine.png"
             visible: true
         }
     }
